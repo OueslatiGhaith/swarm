@@ -1,0 +1,15 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = ["debug"]
+debug = ["dep:swarm_debug"]
+
+[dependencies]
+bevy = { workspace = true }
+
+swarm_camera = { path = "../crates/camera" }
+swarm_debug = { path = "../crates/debug", optional = true }
+swarm_input = { path = "../crates/input" }
