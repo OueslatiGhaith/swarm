@@ -3931,6 +3931,7 @@ name = "swarm_input"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "swarm_camera",
 ]
 
 [[package]]
