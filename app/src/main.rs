@@ -15,10 +15,11 @@ fn main() {
             ..Default::default()
         }))
         .add_plugins((
+            swarm_core::plugin,
+            swarm_input::plugin,
             swarm_camera::plugin,
             #[cfg(feature = "debug")]
             swarm_debug::plugin,
-            swarm_input::plugin,
         ))
         .add_systems(Startup, setup_test_scene) // TODO: remove
         .run();

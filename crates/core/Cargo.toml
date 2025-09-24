@@ -1,9 +1,7 @@
 [package]
-name = "swarm_camera"
+name = "swarm_core"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
 bevy = { workspace = true }
-
-swarm_core = { path = "../core" }

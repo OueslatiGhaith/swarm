@@ -3,13 +3,20 @@ use bevy::{
     prelude::*,
     window::PrimaryWindow,
 };
-use swarm_camera::camera::CameraMoveEvent;
+use swarm_camera::camera::types::{CameraMoveEvent, CameraSet};
+use swarm_core::schedule::InputSchedule;
 
 pub fn plugin(app: &mut App) {
-    app.add_systems(Update, (move_camera_arrow_system, move_camera_mouse_system));
+    app.add_systems(
+        InputSchedule,
+        (
+            move_camera_arrow_system.before(CameraSet::MoveEvent),
+            move_camera_mouse_system.before(CameraSet::MoveEvent),
+        ),
+    );
 }
 
-// TODO: lerp
+// TODO: handle multiple inputs at the same time
 fn move_camera_arrow_system(
     mut key_events: EventReader<KeyboardInput>,
     mut move_events: EventWriter<CameraMoveEvent>,
@@ -38,12 +45,13 @@ fn move_camera_arrow_system(
     }
 }
 
+// TODO: make it use angles
 fn move_camera_mouse_system(
     window_query: Query<&Window, With<PrimaryWindow>>,
     mut was_moving: Local<bool>,
     mut move_events: EventWriter<CameraMoveEvent>,
 ) {
-    const MOVE_MARGIN: f32 = 2.0;
+    const MOVE_MARGIN: f32 = 10.0;
 
     let Ok(window) = window_query.single() else {
         return;

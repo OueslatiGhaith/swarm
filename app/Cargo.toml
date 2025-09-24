@@ -11,5 +11,6 @@ debug = ["dep:swarm_debug"]
 bevy = { workspace = true }
 
 swarm_camera = { path = "../crates/camera" }
+swarm_core = { path = "../crates/core" }
 swarm_debug = { path = "../crates/debug", optional = true }
 swarm_input = { path = "../crates/input" }

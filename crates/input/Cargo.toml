@@ -7,3 +7,4 @@ edition = "2024"
 bevy = { workspace = true }
 
 swarm_camera = { path = "../camera" }
+swarm_core = { path = "../core" }

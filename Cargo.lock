@@ -146,6 +146,7 @@ version = "0.1.0"
 dependencies = [
  "bevy",
  "swarm_camera",
+ "swarm_core",
  "swarm_debug",
  "swarm_input",
 ]
@@ -3917,6 +3918,14 @@ name = "swarm_camera"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "swarm_core",
+]
+
+[[package]]
+name = "swarm_core"
+version = "0.1.0"
+dependencies = [
+ "bevy",
 ]
 
 [[package]]
@@ -3932,6 +3941,7 @@ version = "0.1.0"
 dependencies = [
  "bevy",
  "swarm_camera",
+ "swarm_core",
 ]
 
 [[package]]
