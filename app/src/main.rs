@@ -18,6 +18,7 @@ fn main() {
             swarm_core::plugin,
             swarm_input::plugin,
             swarm_camera::plugin,
+            swarm_character::plugin,
             #[cfg(feature = "debug")]
             swarm_debug::plugin,
         ))

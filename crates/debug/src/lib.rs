@@ -4,6 +4,7 @@ use bevy::{
     dev_tools::fps_overlay::{FpsOverlayConfig, FpsOverlayPlugin},
     diagnostic::LogDiagnosticsPlugin,
     prelude::*,
+    remote::{RemotePlugin, http::RemoteHttpPlugin},
 };
 
 pub fn plugin(app: &mut App) {
@@ -19,5 +20,7 @@ pub fn plugin(app: &mut App) {
             wait_duration: Duration::from_secs(10),
             filter: None,
         },
+        RemotePlugin::default(),
+        RemoteHttpPlugin::default(),
     ));
 }
