@@ -14,7 +14,7 @@ pub fn plugin(app: &mut App) {
 fn insert_schedule(
     app: &mut App,
     after: impl ScheduleLabel,
-    schedule_label: impl ScheduleLabel + Clone + Sized,
+    schedule_label: impl ScheduleLabel + Clone,
 ) {
     let mut schedule = Schedule::new(schedule_label.clone());
     schedule.set_build_settings(ScheduleBuildSettings {

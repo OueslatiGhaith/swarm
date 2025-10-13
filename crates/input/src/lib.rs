@@ -18,8 +18,8 @@ pub fn plugin(app: &mut App) {
 
 // TODO: handle multiple inputs at the same time
 fn move_camera_arrow_system(
-    mut key_events: EventReader<KeyboardInput>,
-    mut move_events: EventWriter<CameraMoveEvent>,
+    mut key_events: MessageReader<KeyboardInput>,
+    mut move_events: MessageWriter<CameraMoveEvent>,
 ) {
     for key_event in key_events.read() {
         let mut direction = Vec2::ZERO;
@@ -49,7 +49,7 @@ fn move_camera_arrow_system(
 fn move_camera_mouse_system(
     window_query: Query<&Window, With<PrimaryWindow>>,
     mut was_moving: Local<bool>,
-    mut move_events: EventWriter<CameraMoveEvent>,
+    mut move_events: MessageWriter<CameraMoveEvent>,
 ) {
     const MOVE_MARGIN: f32 = 10.0;
 

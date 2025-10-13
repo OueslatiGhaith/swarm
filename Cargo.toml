@@ -3,7 +3,7 @@ resolver = "3"
 members = ["app"]
 
 [workspace.dependencies]
-bevy = { version = "0.16.1", features = ["dynamic_linking"] }
+bevy = { version = "0.17.2", features = ["dynamic_linking"] }
 
 [profile.dev]
 opt-level = 1

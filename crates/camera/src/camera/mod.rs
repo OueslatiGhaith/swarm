@@ -6,7 +6,7 @@ use types::*;
 pub mod types;
 
 pub fn plugin(app: &mut App) {
-    app.add_event::<CameraMoveEvent>()
+    app.add_message::<CameraMoveEvent>()
         .add_systems(Startup, setup)
         .add_systems(
             InputSchedule,
@@ -35,7 +35,7 @@ fn setup(mut commands: Commands) {
 
 fn handle_camera_move_event(
     mut movement: ResMut<CameraMovement>,
-    mut events: EventReader<CameraMoveEvent>,
+    mut events: MessageReader<CameraMoveEvent>,
 ) {
     if let Some(event) = events.read().last() {
         movement.set(event.0);

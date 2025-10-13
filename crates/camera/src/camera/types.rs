@@ -23,5 +23,5 @@ impl CameraMovement {
 #[derive(Component)]
 pub struct CameraRig;
 
-#[derive(Event)]
+#[derive(Message)]
 pub struct CameraMoveEvent(pub Vec2);
